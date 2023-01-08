@@ -57,7 +57,7 @@ const openModal = () => {
   setTimeout(() => {
     warning__modal.classList.toggle("action__waring");
     isModalHide = false;
-  }, 15000);
+  }, 2000);
 };
 
 openModal();
