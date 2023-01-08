@@ -48,9 +48,32 @@ tasbeh__reset.addEventListener("click", () => {
   }
 });
 
+// modal --------------
 
-if("serviceWorker" in navigator) {
-    window.addEventListener("load", function() {
-        navigator.serviceWorker.register("/serviceWorker.js")
-    })
+let warning__modal = document.querySelector(".warning__modal");
+let warning__modal_close = document.querySelector("#x-mark");
+let isModalHide = true;
+const openModal = () => {
+  setTimeout(() => {
+    warning__modal.classList.toggle("action__waring");
+    isModalHide = false;
+  }, 15000);
+};
+
+openModal();
+warning__modal_close.addEventListener("click", () => {
+  warning__modal.classList.toggle("action__waring");
+  isModalHide = true;
+});
+window.addEventListener("click", () => {
+  if (!isModalHide) {
+    warning__modal.classList.toggle("action__waring");
+    isModalHide = true;
+  }
+});
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/serviceWorker.js");
+  });
 }
